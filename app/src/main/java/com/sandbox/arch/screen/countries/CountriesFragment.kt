@@ -42,7 +42,8 @@ class CountriesFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         mViewModel = ViewModelProviders.of(this).get(CountriesViewModel::class.java)
-        mViewModel.countriesLiveData.observe(this, Observer<List<Country>> {
+        mViewModel.countriesLiveData.observe(this, Observer {
+            tv_no_data.visibility = View.GONE
             mAdapter?.mValues = it
             mAdapter?.notifyDataSetChanged()
         })

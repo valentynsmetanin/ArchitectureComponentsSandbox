@@ -15,6 +15,7 @@
         tools:listitem="@layout/item_country" />
 
     <TextView
+        android:id="@+id/tv_no_data"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
