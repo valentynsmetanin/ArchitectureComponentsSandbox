@@ -1,23 +1,25 @@
 package com.sandbox.arch.screen
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.sandbox.arch.R
+import com.sandbox.arch.base.BaseActivity
 import com.sandbox.arch.screen.countries.CountriesFragment
 import com.sandbox.arch.utils.FragmentBackStack
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
-
-    private lateinit var mBackstack: FragmentBackStack
+class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+    }
 
+    override fun initFragmentBackStack(): FragmentBackStack? {
         mBackstack = FragmentBackStack(supportFragmentManager, R.id.fragmentContainer)
-        mBackstack.replace(CountriesFragment.newInstance())
+        mBackstack?.replace(CountriesFragment.newInstance())
+
+        return mBackstack
     }
 
     fun showProgress(show: Boolean) {
