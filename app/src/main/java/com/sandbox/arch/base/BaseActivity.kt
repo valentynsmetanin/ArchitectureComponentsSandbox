@@ -18,12 +18,18 @@ abstract class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
-        initRetainBackStack()
+
+        if (savedInstanceState == null) {
+            initRetainBackStack()
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        initRetainBackStack()
+
+        if (savedInstanceState == null) {
+            initRetainBackStack()
+        }
     }
 
     override fun onDestroy() {

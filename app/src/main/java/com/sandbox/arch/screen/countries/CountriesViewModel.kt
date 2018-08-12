@@ -1,5 +1,6 @@
 package com.sandbox.arch.screen.countries
 
+import android.arch.lifecycle.MediatorLiveData
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import com.sandbox.arch.model.Country
@@ -12,15 +13,20 @@ class CountriesViewModel : ViewModel() {
     private var mRepository = CountriesRepository(ApiClient().createService(Api::class.java))
 
     var countriesLiveData: MutableLiveData<List<Country>> = MutableLiveData()
+    var errorLiveData: MediatorLiveData<Throwable> = MediatorLiveData()
 
-    fun getAllCountries() {
+    init {
+        getAllCountries()
+    }
+
+    private fun getAllCountries() {
         mRepository.getAllCountries()
                 .subscribeBy(
                         onNext = {
                             countriesLiveData.value = it
                         },
                         onError = {
-                            // TODO
+                            errorLiveData.value = it
                         }
                 )
     }

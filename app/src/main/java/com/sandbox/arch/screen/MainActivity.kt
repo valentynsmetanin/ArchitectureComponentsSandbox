@@ -16,8 +16,9 @@ class MainActivity : BaseActivity() {
     }
 
     override fun initFragmentBackStack(): FragmentBackStack? {
-        mBackstack = FragmentBackStack(supportFragmentManager, R.id.fragmentContainer)
-        mBackstack?.replace(CountriesFragment.newInstance())
+        mBackstack = FragmentBackStack(supportFragmentManager, R.id.fragmentContainer).apply {
+            replace(CountriesFragment.newInstance())
+        }
 
         return mBackstack
     }
