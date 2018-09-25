@@ -2,16 +2,16 @@ package com.sandbox.arch.presentation.countries
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.sandbox.arch.ArchSandboxApplication
 import com.sandbox.arch.R
-import com.sandbox.arch.di.countries.CountriesModule
 import com.sandbox.arch.data.model.Country
+import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_counties.*
 import javax.inject.Inject
 
@@ -25,9 +25,9 @@ class CountriesFragment : Fragment() {
 
     private var mAdapter: CountriesAdapter? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        ArchSandboxApplication.appComponent.plus(CountriesModule()).inject(this)
-        super.onCreate(savedInstanceState)
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+        AndroidSupportInjection.inject(this)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,

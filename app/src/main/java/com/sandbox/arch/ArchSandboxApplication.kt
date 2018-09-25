@@ -1,25 +1,29 @@
 package com.sandbox.arch
 
+import android.app.Activity
 import android.app.Application
-import com.sandbox.arch.di.AppComponent
-import com.sandbox.arch.di.AppModule
 import com.sandbox.arch.di.DaggerAppComponent
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.HasActivityInjector
+import javax.inject.Inject
 
-class ArchSandboxApplication : Application() {
+
+class ArchSandboxApplication : Application(), HasActivityInjector {
+
+    @Inject
+    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Activity>
 
     override fun onCreate() {
         super.onCreate()
 
-        appComponent = buildComponent()
+        DaggerAppComponent
+                .builder()
+                .context(this)
+                .build()
+                .inject(this)
     }
 
-    private fun buildComponent(): AppComponent = DaggerAppComponent.builder()
-            .appModule(AppModule(this))
-            .build()
-
-    companion object {
-        lateinit var appComponent: AppComponent
-            private set
-    }
+    override fun activityInjector(): AndroidInjector<Activity> = dispatchingAndroidInjector
 
 }

@@ -1,10 +1,11 @@
 package com.sandbox.arch.di
 
+import android.content.Context
 import com.sandbox.arch.ArchSandboxApplication
-import com.sandbox.arch.di.countries.CountriesComponent
-import com.sandbox.arch.di.countries.CountriesModule
+import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
+
 
 /**
  * Created by Valentyn on 28.12.2017.
@@ -14,8 +15,13 @@ import javax.inject.Singleton
 @Singleton
 interface AppComponent {
 
-    fun inject(application: ArchSandboxApplication)
+    @Component.Builder
+    interface Builder {
+        @BindsInstance
+        fun context(context: Context): Builder
+        fun build(): AppComponent
+    }
 
-    fun plus(countriesModule: CountriesModule): CountriesComponent
+    fun inject(application: ArchSandboxApplication)
 
 }

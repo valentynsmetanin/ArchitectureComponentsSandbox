@@ -5,11 +5,12 @@ import android.os.Bundle
 import android.os.PersistableBundle
 import android.support.v7.app.AppCompatActivity
 import com.sandbox.arch.utils.FragmentBackStack
+import dagger.android.support.HasSupportFragmentInjector
 
 /**
  * Created by Valentyn on 28.12.2017.
  */
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
     var mBackstack: FragmentBackStack? = null
     var mRetainer: FragmentBackStack.Retainer? = null

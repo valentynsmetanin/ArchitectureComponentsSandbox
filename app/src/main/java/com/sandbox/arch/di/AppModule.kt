@@ -1,27 +1,20 @@
 package com.sandbox.arch.di
 
-import android.content.Context
-import com.sandbox.arch.ArchSandboxApplication
+import com.sandbox.arch.di.main.ForMain
+import com.sandbox.arch.di.main.MainActivityModule
+import com.sandbox.arch.presentation.MainActivity
 import dagger.Module
-import dagger.Provides
-import org.jetbrains.annotations.NotNull
-import javax.inject.Singleton
+import dagger.android.ContributesAndroidInjector
 
 
 /**
  * Created by Valentyn on 10/17/17.
  */
 @Module
-class AppModule(private val app: ArchSandboxApplication) {
+interface AppModule {
 
-    @Provides
-    @NotNull
-    @Singleton
-    fun providesContext(): Context = app
-
-    @Provides
-    @NotNull
-    @Singleton
-    fun providesApplication(): ArchSandboxApplication = app
+    @ForMain
+    @ContributesAndroidInjector(modules = [MainActivityModule::class])
+    fun baseActivityInjector(): MainActivity
 
 }
