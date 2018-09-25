@@ -1,6 +1,5 @@
 package com.sandbox.arch.di.countries
 
-import com.sandbox.arch.data.network.Api
 import com.sandbox.arch.data.CountriesRepository
 import com.sandbox.arch.presentation.countries.CountriesViewModelFactory
 import dagger.Module
@@ -12,12 +11,6 @@ import org.jetbrains.annotations.NotNull
  */
 @Module
 class CountriesModule {
-
-    @Provides
-    @NotNull
-    @ForCountries
-    fun providesCountriesRepository(api: Api): CountriesRepository
-            = CountriesRepository(api)
 
     @Provides
     @NotNull

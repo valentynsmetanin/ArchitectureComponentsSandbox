@@ -11,7 +11,7 @@ import javax.inject.Singleton
  * Created by Valentyn on 28.12.2017.
  *
  */
-@Component(modules = [AppModule::class, NetworkModule::class])
+@Component(modules = [AppModule::class, NetworkModule::class, RepositoryModule::class])
 @Singleton
 interface AppComponent {
 
