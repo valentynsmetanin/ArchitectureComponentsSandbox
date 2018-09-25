@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         app:layoutManager="android.support.v7.widget.LinearLayoutManager"
         android:scrollbars="vertical"
-        tools:context=".screen.countries.CountriesFragment"
+        tools:context=".presentation.countries.CountriesFragment"
         tools:listitem="@layout/item_country" />
 
     <TextView

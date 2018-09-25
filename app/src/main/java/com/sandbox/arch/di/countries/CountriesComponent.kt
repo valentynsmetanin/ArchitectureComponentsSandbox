@@ -1,7 +1,7 @@
 package com.sandbox.arch.di.countries
 
-import com.sandbox.arch.screen.countries.CountriesFragment
-import com.sandbox.arch.screen.countries.CountriesViewModelFactory
+import com.sandbox.arch.presentation.countries.CountriesFragment
+import com.sandbox.arch.presentation.countries.CountriesViewModelFactory
 import dagger.Subcomponent
 
 /**

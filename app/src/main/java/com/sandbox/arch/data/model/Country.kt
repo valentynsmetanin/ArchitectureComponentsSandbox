@@ -1,4 +1,4 @@
-package com.sandbox.arch.model
+package com.sandbox.arch.data.model
 
 data class Country(var name: String? = null,
                    var capital: String? = null,

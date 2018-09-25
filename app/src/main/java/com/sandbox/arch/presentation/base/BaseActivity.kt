@@ -1,4 +1,4 @@
-package com.sandbox.arch.base
+package com.sandbox.arch.presentation.base
 
 import android.content.Intent
 import android.os.Bundle

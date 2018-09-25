@@ -1,10 +1,10 @@
-package com.sandbox.arch.screen
+package com.sandbox.arch.presentation
 
 import android.os.Bundle
 import android.view.View
 import com.sandbox.arch.R
-import com.sandbox.arch.base.BaseActivity
-import com.sandbox.arch.screen.countries.CountriesFragment
+import com.sandbox.arch.presentation.base.BaseActivity
+import com.sandbox.arch.presentation.countries.CountriesFragment
 import com.sandbox.arch.utils.FragmentBackStack
 import kotlinx.android.synthetic.main.activity_main.*
 

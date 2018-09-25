@@ -1,8 +1,8 @@
 package com.sandbox.arch.di.countries
 
-import com.sandbox.arch.network.Api
-import com.sandbox.arch.screen.countries.CountriesRepository
-import com.sandbox.arch.screen.countries.CountriesViewModelFactory
+import com.sandbox.arch.data.network.Api
+import com.sandbox.arch.presentation.countries.CountriesRepository
+import com.sandbox.arch.presentation.countries.CountriesViewModelFactory
 import dagger.Module
 import dagger.Provides
 import org.jetbrains.annotations.NotNull

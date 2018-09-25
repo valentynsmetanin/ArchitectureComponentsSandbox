@@ -1,7 +1,7 @@
-package com.sandbox.arch.screen.countries
+package com.sandbox.arch.presentation.countries
 
-import com.sandbox.arch.model.Country
-import com.sandbox.arch.network.Api
+import com.sandbox.arch.data.model.Country
+import com.sandbox.arch.data.network.Api
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers

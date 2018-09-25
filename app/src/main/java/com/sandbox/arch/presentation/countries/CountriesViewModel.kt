@@ -1,8 +1,8 @@
-package com.sandbox.arch.screen.countries
+package com.sandbox.arch.presentation.countries
 
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
-import com.sandbox.arch.model.Country
+import com.sandbox.arch.data.model.Country
 import com.sandbox.arch.utils.Event
 import com.sandbox.arch.utils.SingleLiveEvent
 import io.reactivex.rxkotlin.subscribeBy

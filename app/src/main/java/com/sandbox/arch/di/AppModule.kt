@@ -2,8 +2,6 @@ package com.sandbox.arch.di
 
 import android.content.Context
 import com.sandbox.arch.ArchSandboxApplication
-import com.sandbox.arch.network.Api
-import com.sandbox.arch.network.ApiClient
 import dagger.Module
 import dagger.Provides
 import org.jetbrains.annotations.NotNull

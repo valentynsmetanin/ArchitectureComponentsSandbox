@@ -1,4 +1,4 @@
-package com.sandbox.arch.screen.countries
+package com.sandbox.arch.presentation.countries
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider

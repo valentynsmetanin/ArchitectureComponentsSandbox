@@ -1,6 +1,6 @@
-package com.sandbox.arch.network
+package com.sandbox.arch.data.network
 
-import com.sandbox.arch.model.Country
+import com.sandbox.arch.data.model.Country
 import io.reactivex.Observable
 import retrofit2.http.GET
 

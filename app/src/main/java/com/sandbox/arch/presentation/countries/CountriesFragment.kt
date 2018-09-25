@@ -1,4 +1,4 @@
-package com.sandbox.arch.screen.countries
+package com.sandbox.arch.presentation.countries
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
@@ -11,7 +11,7 @@ import android.widget.Toast
 import com.sandbox.arch.ArchSandboxApplication
 import com.sandbox.arch.R
 import com.sandbox.arch.di.countries.CountriesModule
-import com.sandbox.arch.model.Country
+import com.sandbox.arch.data.model.Country
 import kotlinx.android.synthetic.main.fragment_counties.*
 import javax.inject.Inject
 

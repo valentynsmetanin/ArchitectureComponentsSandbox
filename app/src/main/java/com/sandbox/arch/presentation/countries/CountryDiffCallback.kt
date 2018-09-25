@@ -1,7 +1,7 @@
-package com.sandbox.arch.screen.countries
+package com.sandbox.arch.presentation.countries
 
 import android.support.v7.util.DiffUtil
-import com.sandbox.arch.model.Country
+import com.sandbox.arch.data.model.Country
 
 /**
  * Created by Valentyn on 12.08.2018.

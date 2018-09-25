@@ -1,4 +1,4 @@
-package com.sandbox.arch.screen.countries
+package com.sandbox.arch.presentation.countries
 
 import android.support.v7.recyclerview.extensions.ListAdapter
 import android.support.v7.widget.RecyclerView
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.sandbox.arch.R
-import com.sandbox.arch.model.Country
+import com.sandbox.arch.data.model.Country
 import kotlinx.android.synthetic.main.item_country.view.*
 
 
