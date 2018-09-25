@@ -1,4 +1,4 @@
-package com.sandbox.arch.presentation.countries
+package com.sandbox.arch.data
 
 import com.sandbox.arch.data.model.Country
 import com.sandbox.arch.data.network.Api

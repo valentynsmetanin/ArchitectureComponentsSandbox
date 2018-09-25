@@ -2,6 +2,7 @@ package com.sandbox.arch.presentation.countries
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
+import com.sandbox.arch.data.CountriesRepository
 import javax.inject.Inject
 
 /**
