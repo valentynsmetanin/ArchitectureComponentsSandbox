@@ -41,12 +41,21 @@ class CountriesFragment : Fragment() {
 
         mViewModel = ViewModelProviders.of(this, mViewModelFactory).get(CountriesViewModel::class.java)
         mViewModel.countriesLiveData.observe(this, Observer {
-            tv_no_data.visibility = View.GONE
-            mAdapter?.submitList(it)
+            if (it?.isNotEmpty() == true) {
+                tv_no_data.visibility = View.GONE
+                rv_countries.visibility = View.VISIBLE
+                mAdapter?.submitList(it)
+            } else {
+                rv_countries.visibility = View.GONE
+                tv_no_data.visibility = View.VISIBLE
+            }
+
         })
 
-        mViewModel.errorLiveData.observe(this, Observer {
-            Toast.makeText(activity, it.toString(), Toast.LENGTH_SHORT).show()
+        mViewModel.errorLiveData.observe(this, Observer { event ->
+            event?.getContentIfNotHandled()?.let {
+                Toast.makeText(activity, it.toString(), Toast.LENGTH_SHORT).show()
+            }
         })
     }
 
