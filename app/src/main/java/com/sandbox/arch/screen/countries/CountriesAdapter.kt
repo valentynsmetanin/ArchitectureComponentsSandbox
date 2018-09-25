@@ -26,7 +26,7 @@ class CountriesAdapter(private val mListener: OnCountryClicked)
 
         holder.tvName.text = country.name
 
-        with(holder.mView) {
+        with(holder.itemView) {
             tag = country
             setOnClickListener {
                 mListener.onCountryClick(country)
@@ -34,9 +34,9 @@ class CountriesAdapter(private val mListener: OnCountryClicked)
         }
     }
 
-    inner class ViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {
-        val ivFlag: ImageView = mView.iv_flag
-        val tvName: TextView = mView.tv_name
+    inner class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
+        val ivFlag: ImageView = view.iv_flag
+        val tvName: TextView = view.tv_name
     }
 
     interface OnCountryClicked {

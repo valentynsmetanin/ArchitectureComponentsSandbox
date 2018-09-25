@@ -4,21 +4,31 @@ import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.sandbox.arch.ArchSandboxApplication
 import com.sandbox.arch.R
+import com.sandbox.arch.di.countries.CountriesModule
 import com.sandbox.arch.model.Country
 import kotlinx.android.synthetic.main.fragment_counties.*
+import javax.inject.Inject
 
 
 class CountriesFragment : Fragment() {
 
+    @Inject
+    lateinit var mViewModelFactory: CountriesViewModelFactory
+
     private lateinit var mViewModel: CountriesViewModel
 
     private var mAdapter: CountriesAdapter? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        ArchSandboxApplication.appComponent.plus(CountriesModule()).inject(this)
+        super.onCreate(savedInstanceState)
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -29,7 +39,7 @@ class CountriesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initRecycler()
 
-        mViewModel = ViewModelProviders.of(this).get(CountriesViewModel::class.java)
+        mViewModel = ViewModelProviders.of(this, mViewModelFactory).get(CountriesViewModel::class.java)
         mViewModel.countriesLiveData.observe(this, Observer {
             tv_no_data.visibility = View.GONE
             mAdapter?.submitList(it)
@@ -41,7 +51,7 @@ class CountriesFragment : Fragment() {
     }
 
     private fun initRecycler() {
-        mAdapter = CountriesAdapter(mListener = object : CountriesAdapter.OnCountryClicked {
+        mAdapter = CountriesAdapter(object : CountriesAdapter.OnCountryClicked {
             override fun onCountryClick(country: Country) {
                 // TODO click
             }

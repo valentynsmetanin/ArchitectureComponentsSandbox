@@ -1,7 +1,5 @@
 package com.sandbox.arch.di
 
-import android.content.Context
-import com.sandbox.arch.ArchSandboxApplication
 import com.sandbox.arch.network.Api
 import com.sandbox.arch.network.ApiClient
 import dagger.Module
@@ -14,16 +12,11 @@ import javax.inject.Singleton
  * Created by Valentyn on 10/17/17.
  */
 @Module
-class AppModule(private val app: ArchSandboxApplication) {
+class ApiModule {
 
     @Provides
     @NotNull
     @Singleton
-    fun providesContext(): Context = app
-
-    @Provides
-    @NotNull
-    @Singleton
-    fun providesApplication(): ArchSandboxApplication = app
+    fun providesApiClient(): Api = ApiClient().createService()
 
 }

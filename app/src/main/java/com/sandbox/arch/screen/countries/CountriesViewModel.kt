@@ -8,9 +8,7 @@ import com.sandbox.arch.network.Api
 import com.sandbox.arch.network.ApiClient
 import io.reactivex.rxkotlin.subscribeBy
 
-class CountriesViewModel : ViewModel() {
-
-    private var mRepository = CountriesRepository(ApiClient().createService(Api::class.java))
+class CountriesViewModel(private val repository: CountriesRepository) : ViewModel() {
 
     var countriesLiveData: MutableLiveData<List<Country>> = MutableLiveData()
     var errorLiveData: MediatorLiveData<Throwable> = MediatorLiveData()
@@ -19,8 +17,8 @@ class CountriesViewModel : ViewModel() {
         getAllCountries()
     }
 
-    private fun getAllCountries() {
-        mRepository.getAllCountries()
+    fun getAllCountries() {
+        repository.getAllCountries()
                 .subscribeBy(
                         onNext = {
                             countriesLiveData.value = it
