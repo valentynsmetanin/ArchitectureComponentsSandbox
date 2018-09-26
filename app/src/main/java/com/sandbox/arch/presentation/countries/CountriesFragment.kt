@@ -26,8 +26,8 @@ class CountriesFragment : Fragment() {
     private var mAdapter: CountriesAdapter? = null
 
     override fun onAttach(context: Context?) {
-        super.onAttach(context)
         AndroidSupportInjection.inject(this)
+        super.onAttach(context)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
